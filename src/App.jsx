@@ -26,12 +26,13 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [bgColor, setBgColor] = useState("#E6E6FA"); // initial light purple
 
- const colors = [
-  "#ebacebff", // light pink
-  "#b894dfff", // pastel purple
-  "#bc8dcfff", // soft sky blue
-  "#B5FFE1"  // minty light blue-green
+const colors = [
+  "#d87dc9ff", // soft pink
+  "#cf91caff", // pastel sky blue
+  "#88a8d3ff", // light yellow
+  
 ];
+
 
 
 
@@ -137,11 +138,9 @@ export default function App() {
         />
       </div>
 
-
-
-
+<div  className="neon-text"> OUR BEST MEMORY  </div>
 {/* 🌟 Memories Grid */}
-<div className="image-grid">
+<div className="image-grid">  
   {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
     const year = 2016 + i;
     const isSecondOrFourth = i === 1 || i === 3; // 2nd & 4th image
@@ -151,24 +150,34 @@ export default function App() {
           src={img}
           alt=""
           style={{
-            height: isSecondOrFourth ? "250px" : "250px",
-            width: i === 3 ? "200%" : "200%",
+            height: "250px",
+            width: "220%",
             objectFit: "cover",
             borderRadius: "10px",
             border: "5px solid white",
           }}
         />
-        <p style={{ 
-          color: year === 2024 ? "red" : "black", 
-          fontWeight: 900,          
-          fontSize: "32px"          
-        }}>
+        <p
+          style={{
+            color: year === 2024 ? "red" : "black",
+            fontWeight: 900,
+            fontSize: "25px",
+          }}
+        >
           {year === 2024 ? "❤️2024❤️" : year}
         </p>
 
         {/* 🎥 Centered video for 2025 */}
         {year === 2025 && (
-          <div style={{ display: "flex", justifyContent: "center", width: "100%", marginTop: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "20px",
+            }}
+          >
             <video
               src={birthdayVideo}
               controls
@@ -176,8 +185,9 @@ export default function App() {
               loop
               muted
               style={{
-                width: "100%",
-                maxWidth: "500px",
+                width: "80%",      // Increase width (80% of container)
+                height: "500px",   // Increase height
+                maxWidth: "800px", // Optional max width
                 borderRadius: "15px",
               }}
             />
