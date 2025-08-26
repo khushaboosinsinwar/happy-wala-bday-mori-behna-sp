@@ -232,8 +232,8 @@ OUR BEST MEMORY 🧿💗
           src={img}
           alt=""
           style={{
-            height: "280px",
-            width: "250%",
+            height: "300px",
+            width: "200%",
             objectFit: "cover",
             borderRadius: "10px",
             border: "5px solid white",
