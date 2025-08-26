@@ -135,23 +135,30 @@ export default function App() {
         />
       </div>
 
-      {/* 🌟 Memories Grid */}
-      <h2 style={{ textShadow: "2px 2px 10px #ff69b4" }}>
-        OUR BEAUTIFUL MEMORY 💖✨
-      </h2>
-      <div className="image-grid">
-        {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
-          const year = 2016 + i;
-          return (
-            <div key={i}>
-              <img src={img} alt="" />
-              <p style={{ color: year === 2024 ? "red" : "black" }}>
-                {year === 2024 ? "❤️ 2024 ❤️" : year}
-              </p>
-            </div>
-          );
-        })}
+  <div className="image-grid">
+  {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
+    const year = 2016 + i;
+    const isSecondOrFourth = i === 1 || i === 3; // 2nd & 4th image
+    return (
+      <div key={i}>
+        <img
+          src={img}
+          alt=""
+          style={{
+            height: isSecondOrFourth ? "400px" : "200px", // 2nd & 4th taller
+            width: "100%",
+            objectFit: "cover",
+            borderRadius: "10px",
+            border: "5px solid white",
+          }}
+        />
+        <p style={{ color: year === 2024 ? "red" : "black" }}>
+          {year === 2024 ? "❤️ 2024 ❤️" : year}
+        </p>
       </div>
+    );
+  })}
+</div>
 
       {/* ✨ Slideshow */}
       <div className="slideshow">
