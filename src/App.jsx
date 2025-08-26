@@ -155,7 +155,7 @@ export default function App() {
                 src={img}
                 alt=""
                 style={{
-                  height: isSecondOrFourth ? "350px" : "350px",
+                  height: isSecondOrFourth ? "310px" : "310px",
                   width: i === 3 ? "120%" : "100%", // increase 4th image width
                   objectFit: "cover",
                   borderRadius: "10px",
@@ -216,7 +216,7 @@ export default function App() {
 
         .image-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 15px;
           width: 100%;
           max-width: 900px;
