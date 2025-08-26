@@ -15,33 +15,25 @@ import wisheImg from "./assets/poooja/2023.jpg";
 import goImg from "./assets/poooja/2024.jpg";
 import msgImg from "./assets/poooja/2025.jpg";
 import sajanapoojaImg from "./assets/poooja/2025-sp.jpg";
-import sirhome from "./assets/poooja/sirhome.jpg";
-import sirhome1 from "./assets/poooja/sirhome1.jpg";
-import sirhome2 from "./assets/poooja/sirhome2.jpg";
-import sirhome4 from "./assets/poooja/sirhome4.jpg";
-import home from "./assets/poooja/home.jpg";
-import chat from "./assets/poooja/chat.jpg";
-import some from "./assets/poooja/some.jpg";
-import fullclass from "./assets/poooja/fullclass.jpg";
-import jijibday from "./assets/poooja/jijibday.jpg";
-import sweeetadi from "./assets/poooja/sweetadi.jpg";
-import sirclass from "./assets/poooja/sirclass.jpg";
-import park3 from "./assets/poooja/park3.jpg";
-import maam from "./assets/maam.jpg";
-import threeHii from "./assets/3hii.jpg";
-import sphi from "./assets/sphi.jpg";
-import cutehi from "./assets/cutehi.jpg";
-import filterImg from "./assets/filter.jpg";
-import water from "./assets/water.jpg";
-import jiji from "./assets/jiji.jpg";
-import light from "./assets/light.png";
+
+import birthdayVideo from "./assets/birthday-video.mp4"; // replace with your video path
+
+
+
 
 export default function App() {
   const [audio] = useState(new Audio("/music.mp3"));
   const [isPlaying, setIsPlaying] = useState(false);
   const [bgColor, setBgColor] = useState("#E6E6FA"); // initial light purple
 
-  const colors = ["#c089a7ff", "#db87dbff", "#9db5e0ff", "#86b7c0ff"]; // shades of purple
+ const colors = [
+  "#ebacebff", // light pink
+  "#b894dfff", // pastel purple
+  "#bc8dcfff", // soft sky blue
+  "#B5FFE1"  // minty light blue-green
+];
+
+
 
   useEffect(() => {
     audio.loop = true;
@@ -131,7 +123,8 @@ export default function App() {
         }}
       >
         <h1 className="neon-text">Happy Birthday SP 💖💕</h1>
-        <p className="typewriter">May your day be filled with love & laughter!</p>
+        <p className="typewriter"> In my darkest hours, you were the light that guided me, never letting me fall.
+</p>
         <img
           src={girlImg}
           alt="Birthday"
@@ -144,60 +137,82 @@ export default function App() {
         />
       </div>
 
-      {/* 🌟 Memories Grid */}
-      <div className="image-grid">
-        {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
-          const year = 2016 + i;
-          const isSecondOrFourth = i === 1 || i === 3; // 2nd & 4th image
-          return (
-            <div key={i}>
-              <img
-                src={img}
-                alt=""
-                style={{
-                  height: isSecondOrFourth ? "310px" : "310px",
-                  width: i === 3 ? "160%" : "160%", // increase 4th image width
-                  objectFit: "cover",
-                  borderRadius: "10px",
-                  border: "5px solid white",
-                }}
-              />
-              <p style={{ color: year === 2024 ? "red" : "black" }}>
-                {year === 2024 ? "❤️ 2024 ❤️" : year}
-              </p>
-            </div>
-          );
-        })}
-      </div>
 
-      {/* ✨ Slideshow */}
-      <div className="slideshow">
-        {[sirhome, sirhome1, sirhome2, sirhome4, home, chat, some, jiji, water, light, maam, threeHii, sphi, cutehi, filterImg, fullclass, jijibday, sweeetadi, sirclass, park3, goImg, msgImg, sajanapoojaImg].map((img, i, arr) => (
-          <img
-            key={i}
-            src={img}
-            alt="slideshow"
-            style={{
-              animation: `fadeInOut ${arr.length * 2}s infinite`,
-              animationDelay: `${i * 2}s`,
-              position: "absolute",
-              width: "150%",
-              height: "100%",
-              objectFit: "cover",
-              borderRadius: "15px",
-              border: "5px solid white",
-              opacity: 0,
-            }}
-          />
-        ))}
-      </div>
 
+
+{/* 🌟 Memories Grid */}
+<div className="image-grid">
+  {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
+    const year = 2016 + i;
+    const isSecondOrFourth = i === 1 || i === 3; // 2nd & 4th image
+    return (
+      <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <img
+          src={img}
+          alt=""
+          style={{
+            height: isSecondOrFourth ? "310px" : "310px",
+            width: i === 3 ? "160%" : "160%",
+            objectFit: "cover",
+            borderRadius: "10px",
+            border: "5px solid white",
+          }}
+        />
+        <p style={{ 
+          color: year === 2024 ? "red" : "black", 
+          fontWeight: 900,          
+          fontSize: "32px"          
+        }}>
+          {year === 2024 ? "❤️ 2024 ❤️" : year}
+        </p>
+
+        {/* 🎥 Centered video for 2025 */}
+        {year === 2025 && (
+          <div style={{ display: "flex", justifyContent: "center", width: "100%", marginTop: "20px" }}>
+            <video
+              src={birthdayVideo}
+              controls
+              autoPlay
+              loop
+              muted
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                borderRadius: "15px",
+              }}
+            />
+          </div>
+        )}
+      </div>
+    );
+  })}
+</div>
+
+
+    
+    
       {/* 🤝 Friendship Card */}
       <div className="friendship-card">
         <img src={sajanapoojaImg} alt="friends" />
         <div>
-          <h1>🌸 True Friendship is a Treasure ✨</h1>
-          <p>A true friend stands with you in every moment 💕</p>
+        <h1
+  style={{
+    background: "linear-gradient(90deg, #ff69b4, #fff200)", // pink to yellow
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontSize: "2rem",
+    fontWeight: "bold",
+  }}
+>
+  🌸 True Friendship is a Treasure ✨
+</h1>
+
+          <p className="text-black">"Happy Birthday to the most amazing friend of my life! 🌸 
+            In my hardest times, when I felt weak and broken, you stood by 
+            me like my backbone and gave me the courage to rise again. <br /> <br />You are not just a friend, but my strength, my guide, and my biggest supporter. On your special day, I just want to thank you for being the person who never let me face my struggles alone. May this year bring you endless happiness, success, love,
+             and everything your beautiful heart deserves❤️. <br /> <br />You are truly
+              a blessing in my life, and I’ll always cherish our bond forever.
+              Love you bhena💐💐💐</p>
           <button onClick={balloonBurst}>🎉 Celebrate 💕🫶🌸</button>
         </div>
       </div>
