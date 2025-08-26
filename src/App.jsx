@@ -15,26 +15,6 @@ import wisheImg from "./assets/poooja/2023.jpg";
 import goImg from "./assets/poooja/2024.jpg";
 import msgImg from "./assets/poooja/2025.jpg";
 import sajanapoojaImg from "./assets/poooja/2025-sp.jpg";
-import sirhome from "./assets/poooja/sirhome.jpg";
-import sirhome1 from "./assets/poooja/sirhome1.jpg";
-import sirhome2 from "./assets/poooja/sirhome2.jpg";
-import sirhome4 from "./assets/poooja/sirhome4.jpg";
-import home from "./assets/poooja/home.jpg";
-import chat from "./assets/poooja/chat.jpg";
-import some from "./assets/poooja/some.jpg";
-import fullclass from "./assets/poooja/fullclass.jpg";
-import jijibday from "./assets/poooja/jijibday.jpg";
-import sweeetadi from "./assets/poooja/sweetadi.jpg";
-import sirclass from "./assets/poooja/sirclass.jpg";
-import park3 from "./assets/poooja/park3.jpg";
-import maam from "./assets/maam.jpg";
-import threeHii from "./assets/3hii.jpg";
-import sphi from "./assets/sphi.jpg";
-import cutehi from "./assets/cutehi.jpg";
-import filterImg from "./assets/filter.jpg";
-import water from "./assets/water.jpg";
-import jiji from "./assets/jiji.jpg";
-import light from "./assets/light.png";
 
 export default function App() {
   const [audio] = useState(new Audio("/music.mp3"));
@@ -55,36 +35,8 @@ export default function App() {
     }
   };
 
-  // 🎉 Confetti + Floating Emojis
   useEffect(() => {
     confetti({ particleCount: 200, spread: 120, origin: { y: 0.6 } });
-
-    const emojiContainer = document.createElement("div");
-    emojiContainer.style.position = "fixed";
-    emojiContainer.style.top = "0";
-    emojiContainer.style.left = "0";
-    emojiContainer.style.width = "100%";
-    emojiContainer.style.height = "100%";
-    emojiContainer.style.pointerEvents = "none";
-    document.body.appendChild(emojiContainer);
-
-    const emojis = ["💗", "🧿", "💖", "🌸", "✨"];
-    const interval = setInterval(() => {
-      const span = document.createElement("span");
-      span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-      span.style.position = "absolute";
-      span.style.left = Math.random() * 100 + "vw";
-      span.style.fontSize = "2rem";
-      span.style.animation = "floatUp 6s linear forwards";
-      emojiContainer.appendChild(span);
-
-      setTimeout(() => span.remove(), 6000);
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-      emojiContainer.remove();
-    };
   }, []);
 
   const balloonBurst = () => {
@@ -153,37 +105,11 @@ export default function App() {
         })}
       </div>
 
-      {/* ✨ Slideshow */}
-      <div className="slideshow">
-        {[sirhome, sirhome1, sirhome2, sirhome4, home, chat, some, jiji, water, light, maam, threeHii, sphi, cutehi, filterImg, fullclass, jijibday, sweeetadi, sirclass, park3, goImg, msgImg, sajanapoojaImg].map((img, i, arr) => (
-          <img
-            key={i}
-            src={img}
-            alt="slideshow"
-            style={{
-              animation: `fadeInOut ${arr.length * 2}s infinite`,
-              animationDelay: `${i * 2}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* 🤝 Friendship Card */}
-      <div className="friendship-card">
-        <img src={sajanapoojaImg} alt="friends" />
-        <div>
-          <h1>🌸 True Friendship is a Treasure ✨</h1>
-          <p>A true friend stands with you in every moment 💕</p>
-          <button onClick={balloonBurst}>🎉 Celebrate 💕🫶🌸</button>
-        </div>
-      </div>
-
       {/* 🎶 Music Toggle */}
       <button onClick={toggleMusic}>
         {isPlaying ? "⏸ Pause Music" : "▶ Play Music"}
       </button>
 
-      {/* 🌈 CSS */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
@@ -193,11 +119,10 @@ export default function App() {
 
         .image-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr); /* 2 images per row */
-          grid-template-rows: repeat(5, auto);   /* 5 rows */
+          grid-template-columns: repeat(4, 1fr); /* 4 images per row */
           gap: 15px;
           width: 100%;
-          max-width: 500px;
+          max-width: 900px;
           margin: 0 auto;
         }
         .image-grid img {
@@ -205,60 +130,6 @@ export default function App() {
           border-radius: 10px;
           border: 5px solid white;
           object-fit: cover;
-        }
-
-        .slideshow {
-          position: relative;
-          width: 100%;
-          max-width: 400px;
-          height: 250px;
-          margin: 20px auto;
-          overflow: hidden;
-        }
-        .slideshow img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 15px;
-          border: 5px solid white;
-          opacity: 0;
-        }
-
-        @keyframes fadeInOut {
-          0% { opacity: 0; }
-          10% { opacity: 1; }
-          40% { opacity: 1; }
-          50% { opacity: 0; }
-          100% { opacity: 0; }
-        }
-
-        .friendship-card {
-          display: flex;
-          flex-direction: column;
-          background: rgba(255,255,255,0.7);
-          border-radius: 20px;
-          padding: 15px;
-          width: 100%;
-          max-width: 500px;
-          gap: 15px;
-        }
-        .friendship-card img {
-          width: 100%;
-          border-radius: 15px;
-        }
-        .friendship-card button {
-          background: pink;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 25px;
-          font-weight: bold;
-          cursor: pointer;
-        }
-
-        @keyframes floatUp {
-          0% { transform: translateY(100vh); opacity: 1; }
-          100% { transform: translateY(-10vh); opacity: 0; }
         }
 
         .neon-text {
@@ -286,11 +157,11 @@ export default function App() {
           100% { background-position: 0% 50%; }
         }
 
+        @media (max-width: 768px) {
+          .image-grid { grid-template-columns: repeat(2, 1fr); } /* 2 images per row on tablet */
+        }
         @media (max-width: 480px) {
-          h1 { font-size: 1.6rem; }
-          h2 { font-size: 1.3rem; }
-          .slideshow { max-width: 100%; height: 200px; }
-          .image-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 10px; }
+          .image-grid { grid-template-columns: 1fr; } /* 1 image per row on mobile */
         }
       `}</style>
     </div>
