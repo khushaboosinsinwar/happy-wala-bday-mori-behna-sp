@@ -111,7 +111,7 @@ export default function App() {
       </h1>
 
 {/* 🌟 Memories Grid - 2 pics per row */}
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-screen-xl">
+<div className="grid grid-cols-2 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-screen-xl">
   {memories.map((mem, i) => (
     <React.Fragment key={i}>
       {/* Image */}
