@@ -461,7 +461,7 @@ export default function BirthdaySlide() {
             onClick={balloonBurst}
             className="mt-6 bg-gradient-to-r from-purple-400 via-blue-400 to-blue-500 text-black font-bold py-3 px-8 rounded-full shadow-lg hover:scale-110 hover:shadow-2xl transition transform duration-500"
           >
-            🎉 Celebrate 💕🫶🌸
+            🎉 Celebrate  💕🫶🌸
           </button>
         </div>
       </div>
