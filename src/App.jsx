@@ -18,6 +18,7 @@ import sajanapoojaImg from "./assets/poooja/2025-sp.jpg";
 
 import birthdayVideo from "./assets/birthday-video.mp4";
 
+import earing from "./assets/earS.mp4";
 export default function App() {
   const [audio] = useState(new Audio("/music.mp3"));
   const [isPlaying, setIsPlaying] = useState(false);
@@ -142,9 +143,20 @@ export default function App() {
             className="w-[90%] max-w-[800px] h-auto rounded-lg"
           />
         </div>
+        
       )}
     </React.Fragment>
   ))}
+   <div className="col-span-full flex justify-center mt-4">
+          <video
+            src={earing}
+            controls
+            autoPlay
+            loop
+            muted
+            className="w-[90%] max-w-[800px] h-auto rounded-lg"
+          />
+        </div>
 </div>
 
 
