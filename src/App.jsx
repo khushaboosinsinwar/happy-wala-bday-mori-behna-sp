@@ -193,15 +193,18 @@ export default function App() {
 
         .image-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+          grid-template-rows: repeat(5, auto);   /* 5 rows */
           gap: 15px;
           width: 100%;
-          max-width: 900px;
+          max-width: 500px;
+          margin: 0 auto;
         }
         .image-grid img {
           width: 100%;
           border-radius: 10px;
           border: 5px solid white;
+          object-fit: cover;
         }
 
         .slideshow {
@@ -258,10 +261,36 @@ export default function App() {
           100% { transform: translateY(-10vh); opacity: 0; }
         }
 
+        .neon-text {
+          color: #fff;
+          text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 40px #ff69b4;
+          animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+          from { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4; }
+          to { text-shadow: 0 0 20px #fff, 0 0 30px #dda0dd, 0 0 40px #dda0dd; }
+        }
+
+        .typewriter {
+          overflow: hidden;
+          border-right: 4px solid #fff;
+          white-space: nowrap;
+          animation: typing 4s steps(40, end), blink .75s step-end infinite;
+        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #fff; } }
+
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
         @media (max-width: 480px) {
           h1 { font-size: 1.6rem; }
           h2 { font-size: 1.3rem; }
           .slideshow { max-width: 100%; height: 200px; }
+          .image-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 10px; }
         }
       `}</style>
     </div>
