@@ -469,6 +469,7 @@ export default function BirthdaySlide() {
       {/* 🌈 Styles */}
       <style>
         {`
+        
           @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap');
 
           @keyframes gradientShift {
@@ -476,6 +477,62 @@ export default function BirthdaySlide() {
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
           }
+
+           ✅ Responsive Fixes */
+  @media (max-width: 768px) {
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    p { font-size: 1.2rem !important; }
+
+    .image-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 15px !important;
+    }
+
+    .image-grid img {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 10px !important;
+    }
+
+    .fade-slideshow {
+      width: 95% !important;
+      height: auto !important;
+      max-height: 350px !important;
+    }
+.special-message, .friendship-card {
+      width: 90% !important;
+      padding: 15px !important;
+    }
+
+    .friendship-card img {
+      height: 220px !important;
+    }
+
+    .friendship-card h1 {
+      font-size: 1.8rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.6rem !important; }
+    h2 { font-size: 1.4rem !important; }
+    p { font-size: 1rem !important; }
+
+    .image-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .fade-slideshow {
+      width: 100% !important;
+      max-height: 250px !important;
+    }
+
+    .friendship-card {
+      flex-direction: column !important;
+      text-align: center !important;
+    }
+  }
 
           .neon-text {
             color: #fff;
