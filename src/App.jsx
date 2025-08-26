@@ -150,8 +150,8 @@ const colors = [
           src={img}
           alt=""
           style={{
-            height: "250px",
-            width: "220%",
+            height: "280px",
+            width: "250%",
             objectFit: "cover",
             borderRadius: "10px",
             border: "5px solid white",
@@ -167,32 +167,34 @@ const colors = [
           {year === 2024 ? "❤️2024❤️" : year}
         </p>
 
-        {/* 🎥 Centered video for 2025 */}
-        {year === 2025 && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              marginTop: "20px",
-            }}
-          >
-            <video
-              src={birthdayVideo}
-              controls
-              autoPlay
-              loop
-              muted
-              style={{
-                width: "80%",      // Increase width (80% of container)
-                height: "500px",   // Increase height
-                maxWidth: "800px", // Optional max width
-                borderRadius: "15px",
-              }}
-            />
-          </div>
-        )}
+    {/* 🎥 Centered video for 2025 */}
+{year === 2025 && (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      marginTop: "20px",
+    }}
+  >
+    <video
+      src={birthdayVideo}
+      controls
+      autoPlay
+      loop
+      muted
+      style={{
+        width: "90%",      // increase width to 90% of container
+        height: "600px",   // increase height
+        maxWidth: "1000px",// optional maximum width
+        borderRadius: "15px",
+        objectFit: "cover" // keeps aspect ratio while filling box
+      }}
+    />
+  </div>
+)}
+
       </div>
     );
   })}
