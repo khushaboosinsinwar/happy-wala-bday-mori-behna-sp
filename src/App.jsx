@@ -151,8 +151,8 @@ export default function App() {
           src={img}
           alt=""
           style={{
-            height: isSecondOrFourth ? "310px" : "310px",
-            width: i === 3 ? "160%" : "160%",
+            height: isSecondOrFourth ? "250px" : "250px",
+            width: i === 3 ? "200%" : "200%",
             objectFit: "cover",
             borderRadius: "10px",
             border: "5px solid white",
@@ -163,7 +163,7 @@ export default function App() {
           fontWeight: 900,          
           fontSize: "32px"          
         }}>
-          {year === 2024 ? "❤️ 2024 ❤️" : year}
+          {year === 2024 ? "❤️2024❤️" : year}
         </p>
 
         {/* 🎥 Centered video for 2025 */}
