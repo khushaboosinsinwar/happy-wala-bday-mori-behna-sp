@@ -145,7 +145,7 @@ export default function App() {
           src={img}
           alt=""
           style={{
-            height: isSecondOrFourth ? "500px" : "500px", // 2nd & 4th taller
+            height: isSecondOrFourth ? "300px" : "300px", // 2nd & 4th taller
             width: "100%",
             objectFit: "cover",
             borderRadius: "10px",
