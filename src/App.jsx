@@ -77,7 +77,7 @@ export default function App() {
     { img: cuttwoImg, width: "w-[200px]", height: "h-[300px]", year: 2016 },
     { img: flowerImg, width: "w-[250px]", height: "h-[300px]", year: 2017 },
     { img: cutieImg, width: "w-[200px]", height: "h-[300px]", year: 2018 },
-    { img: parkImg, width: "w-[250px]", height: "h-[300px]", year: 2019 },
+    { img: parkImg, width: "w-[300px]", height: "h-[300px]", year: 2019 },
     { img: balloImg, width: "w-[200px]", height: "h-[300px]", year: 2020 },
     { img: hbgImg, width: "w-[200px]", height: "h-[300px]", year: 2021 },
     { img: spoojaImg, width: "w-[250px]", height: "h-[300px]", year: 2022 },
@@ -93,7 +93,7 @@ export default function App() {
     >
       {/* 🎂 Birthday Header */}
       <div className="bg-white/10 p-8 md:p-12 rounded-3xl shadow-xl w-[95%] max-w-screen-xl mx-auto">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold italic text-white drop-shadow-[0_0_10px_#ff69b4] animate-neonGlow">
+        <h1 className="text-xl md:text-5xl lg:text-6xl font-bold italic text-white drop-shadow-[0_0_10px_#ff69b4] animate-neonGlow">
           Happy Birthday SP (Sanjana-Pooja) 💖💕
         </h1>
         <p className="text-lg md:text-2xl lg:text-3xl mt-4 italic">
