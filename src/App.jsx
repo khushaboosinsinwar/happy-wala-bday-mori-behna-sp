@@ -112,20 +112,67 @@ const colors = [
         transition: "background 0.5s ease",
       }}
     >
-      {/* 🎂 Birthday Header */}
-      <div
-        style={{
-          background: "rgba(255, 255, 255, 0.1)",
-          padding: "20px",
-          borderRadius: "20px",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
-          width: "100%",
-          maxWidth: "500px",
-        }}
-      >
-        <h1 className="neon-text">Happy Birthday SP 💖💕</h1>
-        <p className="typewriter"> In my darkest hours, you were the light that guided me, never letting me fall.
-</p>
+     {/* 🎂 Birthday Header */}
+<div
+  style={{
+    background: "rgba(255, 255, 255, 0.1)",
+    padding: "30px",           // thoda zyada padding
+    borderRadius: "20px",
+    boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+    width: "90%",               // div width badha di
+    maxWidth: "800px",          // max width bhi increase
+    textAlign: "center",
+    margin: "0 auto",           // center align
+    justifyItems: "center",
+    textAlign: "center",
+  }}
+>
+  <h1
+  style={{
+    fontSize: "3rem",
+    fontWeight: "bold",
+    color: "white", // base pink
+    textShadow: `
+      0 0 5px #ff69b4,
+      0 0 10px #ff69b4,
+      0 0 20px #ff69b4,
+      0 0 40px #ff69b4,
+      0 0 80px #ff69b4
+    `,
+    animation: "neonGlow 1.5s ease-in-out infinite alternate"
+  }}
+>
+  Happy Birthday SP 💖💕
+</h1>
+
+<style>{`
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 5px #ff69b4,
+                 0 0 10px #ff69b4,
+                 0 0 20px #ff69b4,
+                 0 0 40px #ff69b4,
+                 0 0 80px #ff69b4;
+  }
+  to {
+    text-shadow: 0 0 10px #ffb6c1,
+                 0 0 20px #ffb6c1,
+                 0 0 30px #ffb6c1,
+                 0 0 50px #ffb6c1,
+                 0 0 100px #ffb6c1;
+  }
+}
+`}</style>
+
+  <p
+    className="typewriter"
+    style={{ fontSize: "1.5rem", lineHeight: "2rem", margin:"2px",}} // text size aur readability improve
+  >
+    In my darkest hours, you were the light <br /> that guided me, never letting me fall.
+  </p>
+
+
+
         <img
           src={girlImg}
           alt="Birthday"
@@ -137,8 +184,43 @@ const colors = [
           }}
         />
       </div>
+   <h1
+  style={{
+    fontSize: "3rem",
+    fontWeight: "bold",
+    color: "purple", // base pink
+    textShadow: `
+      0 0 5px #ff69b4,
+      0 0 10px #ff69b4,
+      0 0 20px #ff69b4,
+      0 0 40px #ff69b4,
+      0 0 80px #ff69b4
+    `,
+    animation: "neonGlow 1.5s ease-in-out infinite alternate"
+  }}
+>
+OUR BEST MEMORY 🧿💗
+</h1>
 
-<div  className="neon-text"> OUR BEST MEMORY  </div>
+<style>{`
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 5px #ff69b4,
+                 0 0 10px #ff69b4,
+                 0 0 20px #ff69b4,
+                 0 0 40px #ff69b4,
+                 0 0 80px #ff69b4;
+  }
+  to {
+    text-shadow: 0 0 10px #ffb6c1,
+                 0 0 20px #ffb6c1,
+                 0 0 30px #ffb6c1,
+                 0 0 50px #ffb6c1,
+                 0 0 100px #ffb6c1;
+  }
+}
+`}</style>
+
 {/* 🌟 Memories Grid */}
 <div className="image-grid">  
   {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
@@ -174,7 +256,7 @@ const colors = [
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      width: "100%",
+      width: "auto",
       marginTop: "20px",
     }}
   >
@@ -185,8 +267,8 @@ const colors = [
       loop
       muted
       style={{
-        width: "90%",      // increase width to 90% of container
-        height: "600px",   // increase height
+        width: "auto",      // increase width to 90% of container
+        height: "500px",   // increase height
         maxWidth: "1000px",// optional maximum width
         borderRadius: "15px",
         objectFit: "cover" // keeps aspect ratio while filling box
