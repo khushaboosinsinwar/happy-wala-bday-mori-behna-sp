@@ -127,7 +127,7 @@ export default function App() {
 
         .image-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+          grid-template-columns: repeat(3, 1fr); /* 4 images per row */
           gap: 15px;
           width: 100%;
           max-width: 900px;
