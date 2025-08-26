@@ -39,6 +39,9 @@ import light from "./assets/light.png";
 export default function App() {
   const [audio] = useState(new Audio("/music.mp3"));
   const [isPlaying, setIsPlaying] = useState(false);
+  const [bgColor, setBgColor] = useState("#E6E6FA"); // initial light purple
+
+  const colors = ["#c089a7ff", "#db87dbff", "#9db5e0ff", "#86b7c0ff"]; // shades of purple
 
   useEffect(() => {
     audio.loop = true;
@@ -55,10 +58,18 @@ export default function App() {
     }
   };
 
+  // 🌈 Change background color every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      setBgColor(randomColor);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   // 🎉 Confetti + Floating Emojis
   useEffect(() => {
     confetti({ particleCount: 200, spread: 120, origin: { y: 0.6 } });
-
     const emojiContainer = document.createElement("div");
     emojiContainer.style.position = "fixed";
     emojiContainer.style.top = "0";
@@ -95,19 +106,17 @@ export default function App() {
     <div
       style={{
         fontFamily: "'Dancing Script', cursive",
-        background:
-          "linear-gradient(-45deg, #FFC0CB, #b175a4, #8ba2ceff, #B5FFFC)",
-        backgroundSize: "400% 400%",
-        animation: "gradientShift 10s ease infinite",
+        background: bgColor,
         minHeight: "100vh",
         width: "100%",
-        color: "#fff",
+        color: "white",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
         padding: "15px",
         gap: "30px",
+        transition: "background 0.5s ease",
       }}
     >
       {/* 🎂 Birthday Header */}
@@ -135,30 +144,31 @@ export default function App() {
         />
       </div>
 
-  <div className="image-grid">
-  {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
-    const year = 2016 + i;
-    const isSecondOrFourth = i === 1 || i === 3; // 2nd & 4th image
-    return (
-      <div key={i}>
-        <img
-          src={img}
-          alt=""
-          style={{
-            height: isSecondOrFourth ? "300px" : "300px", // 2nd & 4th taller
-            width: "100%",
-            objectFit: "cover",
-            borderRadius: "10px",
-            border: "5px solid white",
-          }}
-        />
-        <p style={{ color: year === 2024 ? "red" : "black" }}>
-          {year === 2024 ? "❤️ 2024 ❤️" : year}
-        </p>
+      {/* 🌟 Memories Grid */}
+      <div className="image-grid">
+        {[cuttwoImg, flowerImg, cutieImg, parkImg, balloImg, hbgImg, spoojaImg, wisheImg, goImg, msgImg].map((img, i) => {
+          const year = 2016 + i;
+          const isSecondOrFourth = i === 1 || i === 3; // 2nd & 4th image
+          return (
+            <div key={i}>
+              <img
+                src={img}
+                alt=""
+                style={{
+                  height: isSecondOrFourth ? "350px" : "350px",
+                  width: i === 3 ? "120%" : "100%", // increase 4th image width
+                  objectFit: "cover",
+                  borderRadius: "10px",
+                  border: "5px solid white",
+                }}
+              />
+              <p style={{ color: year === 2024 ? "red" : "black" }}>
+                {year === 2024 ? "❤️ 2024 ❤️" : year}
+              </p>
+            </div>
+          );
+        })}
       </div>
-    );
-  })}
-</div>
 
       {/* ✨ Slideshow */}
       <div className="slideshow">
@@ -167,10 +177,16 @@ export default function App() {
             key={i}
             src={img}
             alt="slideshow"
-            className="fade-slideshow"
             style={{
               animation: `fadeInOut ${arr.length * 2}s infinite`,
               animationDelay: `${i * 2}s`,
+              position: "absolute",
+              width: "150%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: "15px",
+              border: "5px solid white",
+              opacity: 0,
             }}
           />
         ))}
@@ -186,12 +202,14 @@ export default function App() {
         </div>
       </div>
 
-     
+      {/* 🎶 Music Toggle */}
+      <button onClick={toggleMusic}>
+        {isPlaying ? "⏸ Pause Music" : "▶ Play Music"}
+      </button>
 
       {/* 🌈 CSS */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
         h1 { font-size: 2rem; }
         h2 { font-size: 1.5rem; }
         p { font-size: 1rem; }
@@ -203,36 +221,14 @@ export default function App() {
           width: 100%;
           max-width: 900px;
         }
-        .image-grid img {
-          width: 100%;
-          border-radius: 10px;
-          border: 5px solid white;
-        }
-
-        /* Mobile: exactly 2 images per row */
-        @media (max-width: 768px) {
-          .image-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-          }
-        }
 
         .slideshow {
           position: relative;
-          width: 100%;
+          width: 150%;
           max-width: 400px;
-          height: 250px;
+          height: 550px;
           margin: 20px auto;
           overflow: hidden;
-        }
-        .slideshow img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 15px;
-          border: 5px solid white;
-          opacity: 0;
         }
 
         @keyframes fadeInOut {
