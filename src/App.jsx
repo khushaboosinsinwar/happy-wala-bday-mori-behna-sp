@@ -156,7 +156,7 @@ export default function App() {
                 alt=""
                 style={{
                   height: isSecondOrFourth ? "310px" : "310px",
-                  width: i === 3 ? "120%" : "100%", // increase 4th image width
+                  width: i === 3 ? "160%" : "160%", // increase 4th image width
                   objectFit: "cover",
                   borderRadius: "10px",
                   border: "5px solid white",
@@ -201,11 +201,6 @@ export default function App() {
           <button onClick={balloonBurst}>🎉 Celebrate 💕🫶🌸</button>
         </div>
       </div>
-
-      {/* 🎶 Music Toggle */}
-      <button onClick={toggleMusic}>
-        {isPlaying ? "⏸ Pause Music" : "▶ Play Music"}
-      </button>
 
       {/* 🌈 CSS */}
       <style>{`
